@@ -24,14 +24,15 @@ async function carregarProjetos() {
             return `
                 <div class="projeto-card content-section">
                     <div class="projeto-info">
-                        <h3>${data.name}</h3>
+                        <h3>
+                            <a href="${data.html_url}" target="_blank" class="projeto-titulo-link">
+                                <i class="fab fa-github"></i> ${data.name}
+                            </a>
+                        </h3>
                         <p>${data.description ? data.description : 'Nenhuma descrição fornecida no repositório.'}</p>
                         <div class="tech-tags">
                             ${data.language ? `<span>${data.language}</span>` : ''}
                             <span title="Estrelas no GitHub">⭐ ${data.stargazers_count}</span>
-                        </div>
-                        <div class="projeto-links">
-                            <a href="${data.html_url}" target="_blank" class="btn-link"><i class="fab fa-github"></i> Acessar Repositório</a>
                         </div>
                     </div>
                 </div>

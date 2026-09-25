@@ -221,3 +221,16 @@ footer {
 @media (max-width: 768px) {
     .nav-links { display: none; }
 }
+
+/* Título do Projeto Clicável */
+.projeto-titulo-link {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.projeto-titulo-link:hover {
+    color: var(--primary-color);
+}
