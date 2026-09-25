@@ -18,7 +18,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -29,27 +29,13 @@ body {
 }
 
 /* Tipografia */
-h1, h2, h3 {
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-p {
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-main);
-    transition: color 0.3s;
-}
+h1, h2, h3 { margin-bottom: 1rem; font-weight: 700; }
+h1 { font-size: 2.2rem; }
+h2 { font-size: 2.2rem; margin-bottom: 2rem; }
+p { color: var(--text-muted); margin-bottom: 1rem; }
+a { text-decoration: none; color: var(--text-main); transition: color 0.3s; }
+.highlight { color: var(--primary-color); }
+.subtitle { font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 500; }
 
 /* Navbar */
 header {
@@ -61,184 +47,104 @@ header {
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 nav {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+.nav-links { list-style: none; display: flex; gap: 2rem; }
+.nav-links a:hover { color: var(--primary-color); }
+.yt-nav-link { color: var(--youtube-color) !important; font-weight: bold; }
+.yt-nav-link:hover { color: var(--youtube-hover) !important; }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
+/* Layout Principal Dividido (Dashboard Style) */
+.portfolio-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+    max-width: 1300px;
+    margin: 120px auto 2rem auto;
+    padding: 0 2rem;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-.yt-nav-link {
-    color: var(--youtube-color) !important;
-    font-weight: bold;
-}
-
-.yt-nav-link:hover {
-    color: var(--youtube-hover) !important;
-}
-
-/* Layout Geral das Seções */
-section {
-    padding: 100px 2rem 60px 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Hero Section */
-#hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Lado Esquerdo: Sidebar Fixo */
+.profile-sidebar {
+    position: sticky;
+    top: 120px;
+    background-color: var(--surface-color);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
     text-align: center;
+    height: fit-content;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-}
-
-.highlight {
-    color: var(--primary-color);
-}
-
-.subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.cta-buttons {
+.profile-img-container {
     display: flex;
-    gap: 1rem;
     justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.sobre-texto { margin-bottom: 1.5rem; font-size: 0.95rem; }
+.sidebar-cta { margin-top: 2rem; }
+
+/* Espaço visual de Habilidades (dentro da sidebar) */
+.skills-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
     flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.skill-item {
+    font-size: 2.6rem;
+    color: var(--text-main);
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+.skill-item:hover {
+    transform: translateY(-5px) scale(1.1);
 }
 
 /* Botões */
 .btn {
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold;
+    transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;
+    justify-content: center; width: 100%;
 }
+.btn-primary { background-color: var(--primary-color); color: white; }
+.btn-primary:hover { background-color: var(--primary-hover); }
+.btn-youtube { background-color: transparent; border: 2px solid var(--youtube-color); color: var(--youtube-color); }
+.btn-youtube:hover { background-color: var(--youtube-color); color: white; }
+.btn-youtube-large { background-color: var(--youtube-color); color: white; padding: 1rem 2rem; font-size: 1.1rem; width: auto; }
+.btn-youtube-large:hover { background-color: var(--youtube-hover); }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-}
-
-.btn-youtube {
-    background-color: transparent;
-    border: 2px solid var(--youtube-color);
-    color: var(--youtube-color);
-}
-
-.btn-youtube:hover {
-    background-color: var(--youtube-color);
-    color: white;
-}
-
-.btn-youtube-large {
-    background-color: var(--youtube-color);
-    color: white;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-}
-
-.btn-youtube-large:hover {
-    background-color: var(--youtube-hover);
-}
-
-/* Sobre Mim */
-.sobre-container {
-    background-color: var(--surface-color);
-    padding: 3rem;
-    border-radius: 16px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.sobre-texto p {
-    font-size: 1.1rem;
-}
-
-/* Seção YouTube (Destaque) */
-.youtube-section {
-    background: linear-gradient(180deg, rgba(30,41,59,0) 0%, rgba(255,0,0,0.05) 100%);
-    border-radius: 20px;
+/* Lado Direito: Conteúdo (Projetos e YT) */
+.content-section {
     margin-bottom: 4rem;
-}
-
-.youtube-header h2 {
-    color: var(--text-main);
-}
-
-.youtube-header i {
-    color: var(--youtube-color);
-}
-
-.youtube-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
-.video-wrapper {
-    width: 100%;
-    max-width: 800px;
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
-    border: 1px solid rgba(255,0,0,0.2);
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-}
-
-.youtube-cta {
-    text-align: center;
-    max-width: 600px;
 }
 
 /* Projetos */
 .projetos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
-
 .projeto-card {
     background-color: var(--surface-color);
     border-radius: 12px;
@@ -246,19 +152,13 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255,255,255,0.05);
 }
-
 .projeto-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
-
 .tech-tags {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+    display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;
 }
-
 .tech-tags span {
     background-color: rgba(59, 130, 246, 0.1);
     color: var(--primary-color);
@@ -267,23 +167,27 @@ section {
     font-size: 0.85rem;
     font-weight: bold;
 }
+.projeto-links { display: flex; gap: 1rem; }
+.btn-link { font-size: 0.9rem; color: var(--text-main); display: flex; align-items: center; gap: 0.4rem; }
+.btn-link:hover { color: var(--primary-color); }
 
-.projeto-links {
-    display: flex;
-    gap: 1rem;
+/* Seção YouTube */
+.youtube-section {
+    background: linear-gradient(180deg, rgba(30,41,59,0) 0%, rgba(255,0,0,0.05) 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 1px solid rgba(255,0,0,0.1);
 }
-
-.btn-link {
-    font-size: 0.9rem;
-    color: var(--text-main);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+.youtube-header h2 { color: var(--text-main); margin-bottom: 0.5rem; }
+.youtube-header i { color: var(--youtube-color); }
+.youtube-content { display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2rem; }
+.video-wrapper {
+    width: 100%; max-width: 800px; aspect-ratio: 16 / 9;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15); border: 1px solid rgba(255,0,0,0.2);
 }
-
-.btn-link:hover {
-    color: var(--primary-color);
-}
+.video-wrapper iframe { width: 100%; height: 100%; }
 
 /* Footer / Contato */
 footer {
@@ -291,46 +195,29 @@ footer {
     padding: 4rem 2rem 2rem 2rem;
     text-align: center;
     border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 2rem;
 }
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.social-links a {
-    font-size: 1.8rem;
-    color: var(--text-muted);
-    transition: color 0.3s, transform 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--text-main);
-    transform: scale(1.1);
-}
-
+.social-links { display: flex; justify-content: center; gap: 1.5rem; margin: 2rem 0; }
+.social-links a { font-size: 1.8rem; color: var(--text-muted); transition: color 0.3s, transform 0.3s; }
+.social-links a:hover { color: var(--text-main); transform: scale(1.1); }
 .social-links a[title="GitHub"]:hover { color: #ffffff; }
 .social-links a[title="LinkedIn"]:hover { color: #0a66c2; }
 .social-links a[title="Instagram"]:hover { color: #e1306c; }
 .social-links a[title="YouTube"]:hover { color: #ff0000; }
 .social-links a[title="Twitter"]:hover { color: #1da1f2; }
-
-.footer-bottom {
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.9rem;
-}
+.footer-bottom { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
 
 /* Responsividade */
+@media (max-width: 992px) {
+    .portfolio-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .profile-sidebar {
+        position: static;
+        margin-bottom: 2rem;
+    }
+}
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .nav-links {
-        display: none; /* Esconde os links em telas muito pequenas (pode ser substituido por menu hamburguer depois) */
-    }
+    .nav-links { display: none; }
 }
